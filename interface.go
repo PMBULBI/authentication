@@ -15,7 +15,7 @@ type UserExist interface {
 	CheckUserExists(ctx context.Context, email, phoneNum string) (data schemas.Pendaftaran, err error)
 }
 
-type Repository struct {
+type Repository interface {
 	UserPassRepository
 	UserExist
 }
