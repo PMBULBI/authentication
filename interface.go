@@ -20,7 +20,10 @@ type Repository struct {
 	UserExist
 }
 
-type Controller interface {
+type UPassController interface {
 	CheckByEmailPass(ctx context.Context, request *model.UserPass) (data schemas.Pendaftaran, err error)
 	CheckByPhoneNumPass(ctx context.Context, request *model.UserPass) (data schemas.Pendaftaran, err error)
+}
+
+type GoogleController interface {
 }
