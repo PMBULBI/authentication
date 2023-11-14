@@ -2,8 +2,8 @@ package authentication
 
 import (
 	"context"
+	"github.com/PMBULBI/authentication/model"
 	"github.com/PMBULBI/types/schemas"
-	"github.com/gofiber/fiber/v2"
 )
 
 type UserPassRepository interface {
@@ -16,14 +16,11 @@ type UserExist interface {
 }
 
 type Repository struct {
-	Authentication
+	UserPassRepository
+	UserExist
 }
 
 type Controller interface {
-	CheckIsExist(ctx *fiber.Ctx) (data schemas.Pendaftaran, err error)
-}
-
-type Authentication interface {
-	CheckByEmailPass(ctx context.Context, email, password string) (data schemas.Pendaftaran, err error)
-	CheckByPhoneNumPass(ctx context.Context, phoneNum, password string) (data schemas.Pendaftaran, err error)
+	CheckByEmailPass(ctx context.Context, request *model.UserPass) (data schemas.Pendaftaran, err error)
+	CheckByPhoneNumPass(ctx context.Context, request *model.UserPass) (data schemas.Pendaftaran, err error)
 }
