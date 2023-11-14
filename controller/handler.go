@@ -7,10 +7,10 @@ import (
 	"strings"
 )
 
-func (c controller) CheckByEmailPass(ctx context.Context, request *model.UserPass) (data schemas.Pendaftaran, err error) {
+func (c *upass) CheckByEmailPass(ctx context.Context, request *model.UserPass) (data schemas.Pendaftaran, err error) {
 	return c.auth.GetByEmailPass(ctx, request.Email, request.Password)
 }
 
-func (c controller) CheckByPhoneNumPass(ctx context.Context, request *model.UserPass) (data schemas.Pendaftaran, err error) {
+func (c *upass) CheckByPhoneNumPass(ctx context.Context, request *model.UserPass) (data schemas.Pendaftaran, err error) {
 	return c.auth.GetByPhoneNumPass(ctx, strings.ReplaceAll(request.PhoneNum, "+", ""), request.Password)
 }

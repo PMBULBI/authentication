@@ -4,12 +4,12 @@ import (
 	"github.com/PMBULBI/authentication"
 )
 
-type controller struct {
+type upass struct {
 	auth authentication.Repository
 }
 
-func NewController(auth authentication.Repository) authentication.Controller {
-	return &controller{
+func NewController(auth authentication.Repository) authentication.UPassController {
+	return &upass{
 		auth: auth,
 	}
 }
