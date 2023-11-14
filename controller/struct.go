@@ -8,7 +8,7 @@ type controller struct {
 	auth authentication.Repository
 }
 
-func NewController(auth authentication.Repository) authentication.Authentication {
+func NewController(auth authentication.Repository) authentication.Controller {
 	return &controller{
 		auth: auth,
 	}
